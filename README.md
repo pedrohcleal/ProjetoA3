@@ -13,11 +13,10 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 ### 📋 Pré-requisitos
 
 ```
-Docker -> https://docs.docker.com/get-docker/
-Docker Compose -> https://getcomposer.org/download/
-Python -> https://www.python.org/downloads/
-Django -> executar comando ```shell pip install django ```
+Intellij-> https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC
+MySQL -> [https://getcomposer.org/download/](https://dev.mysql.com/downloads/installer/)
 PostGreeSQL -> https://www.postgresql.org/download/
+
 Dbeaver -> https://dbeaver.io/download/
 Git -> https://git-scm.com/downloads
 Linux kernel update package -> https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
