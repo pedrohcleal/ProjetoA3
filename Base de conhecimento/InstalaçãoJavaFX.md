@@ -1,8 +1,8 @@
 # Como instalar
+Documentação JavaFX: https://openjfx.io/openjfx-docs/
 
 ## INTELIJ
 
-Documentação JavaFX: https://openjfx.io/openjfx-docs/
 Tutorial YT: https://www.youtube.com/watch?v=Ope4icw6bVk&list=PLZPZq0r_RZOM-8vJA3NQFZB7JroDcMwev
 
 Para instalar o JavaFX no IntelliJ IDEA, você pode seguir os passos abaixo. Certifique-se de que você já tenha o IntelliJ IDEA instalado e configurado para desenvolvimento Java. Além disso, verifique se você tem o JDK (Java Development Kit) instalado em seu sistema.
@@ -48,6 +48,8 @@ Para instalar o JavaFX no IntelliJ IDEA, você pode seguir os passos abaixo. Cer
 Lembrando que, dependendo da versão do IntelliJ IDEA e do JavaFX, os passos e menus podem variar ligeiramente, mas a essência do processo permanece a mesma. Certifique-se de estar usando as versões compatíveis do JavaFX e do JDK para evitar problemas de compatibilidade.
 
 ## Eclipse
+
+Tutorial YT: https://www.youtube.com/watch?v=_7OM-cMYWbQ&list=PLZPZq0r_RZOM-8vJA3NQFZB7JroDcMwev&index=1&pp=iAQB
 
 Para instalar o JavaFX no Eclipse, você pode seguir os seguintes passos:
 
