@@ -2,7 +2,7 @@
 Projeto A3 - Universidade São Judas Tadeu
 
 
-EXEMPO - README->
+# EXEMPO - README abaixo
 
 Projeto introdutório para subir uma aplicação(deploy) API em Django + PostgreSQL com a utilização de containers da ferramenta Docker
 
