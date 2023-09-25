@@ -15,3 +15,6 @@ e clique em ok
 na parte de VM Options, clique na página ao lado de <-->, selecione "PATH_TO_FX" e clique em "insert"
 
 -> tente rodar o app, será mostrado a tela hello world com um botão
+
+(javafx download -> https://download2.gluonhq.com/openjfx/21/openjfx-21_windows-x64_bin-sdk.zip)
+(java JDK download -> https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe)
