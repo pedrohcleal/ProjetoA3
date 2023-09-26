@@ -192,3 +192,5 @@ No Java Swing, as "labels" geralmente se referem aos componentes gráficos usado
    ```
 
 Essas são as principais informações sobre o uso de labels no Java Swing. Elas são muito úteis para exibir informações, rótulos e elementos gráficos em interfaces de usuário Swing. Você pode personalizar as labels de acordo com suas necessidades específicas para criar interfaces de usuário interativas e informativas.
+
+## Métodos JLabel
