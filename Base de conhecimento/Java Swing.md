@@ -24,6 +24,118 @@ Aqui estão algumas características e conceitos-chave relacionados ao Java Swin
 
 Em resumo, o Java Swing é uma poderosa biblioteca para a criação de interfaces gráficas em Java, permitindo que os desenvolvedores criem aplicativos de desktop visualmente atraentes e interativos. É amplamente utilizado em aplicações de desktop Java, embora tenha enfrentado concorrência de outras tecnologias mais modernas, como JavaFX, nos últimos anos.
 
+## Camadas
+
+O Java Swing é uma biblioteca gráfica que faz parte do Java Foundation Classes (JFC) e é usada para criar interfaces gráficas de usuário (GUIs) em aplicativos Java. As camadas no Java Swing se referem ao conceito de hierarquia de componentes ou contêineres que são usados para construir interfaces gráficas. Essas camadas ajudam a organizar e estruturar os elementos da GUI de maneira eficaz. Aqui estão as principais camadas no Java Swing:
+
+1. **Camada de Conteúdo (Content Layer):**
+   - A camada mais baixa da hierarquia é a camada de conteúdo, que representa os componentes gráficos individuais, como botões, caixas de texto, rótulos e outros elementos de interface.
+   - Os componentes nessa camada são responsáveis por interagir diretamente com o usuário e exibir informações ou receber entrada.
+
+2. **Camada de Contêiner (Container Layer):**
+   - Acima da camada de conteúdo está a camada de contêiner, que consiste em componentes que podem conter outros componentes.
+   - Exemplos de contêineres incluem JPanel, JFrame e JDialog. Eles são usados para organizar e agrupar componentes relacionados em uma GUI.
+   - Os contêineres ajudam a definir a estrutura geral da interface do usuário e a organizar os elementos visuais de maneira hierárquica.
+
+3. **Camada de Layout (Layout Layer):**
+   - A camada de layout é responsável por determinar como os componentes são posicionados e redimensionados dentro de um contêiner.
+   - LayoutManagers são usados nesta camada para controlar o layout dos componentes. Alguns exemplos de LayoutManagers incluem BorderLayout, GridLayout e FlowLayout.
+   - Os LayoutManagers ajudam a garantir que os componentes se ajustem automaticamente ao tamanho do contêiner e à resolução da tela.
+
+4. **Camada de Janela (Window Layer):**
+   - A camada de janela representa as janelas de nível superior em um aplicativo Swing, como JFrame e JDialog.
+   - As janelas são usadas para criar a interface principal do aplicativo e geralmente contêm vários contêineres e componentes.
+   - A camada de janela lida com eventos de janela, como redimensionamento, minimização e fechamento.
+
+5. **Camada de Aplicação (Application Layer):**
+   - Esta é a camada mais alta e representa a lógica de aplicação subjacente que controla o comportamento dos componentes e a interação com o usuário.
+   - A camada de aplicação é responsável por definir como os componentes reagem a eventos e como os dados são processados.
+
+Em resumo, as camadas no Java Swing fornecem uma estrutura organizacional para a criação de interfaces gráficas de usuário complexas e flexíveis. Os componentes individuais são organizados em contêineres que são gerenciados por LayoutManagers, e as janelas de nível superior são usadas para criar a interface principal do aplicativo. A camada de aplicação controla a lógica do aplicativo e a interação com o usuário. Essa estrutura modular ajuda os desenvolvedores a criar GUIs eficazes e bem organizadas em aplicativos Java Swing.
+
+Exemplo prático:
+Aplicação Java Swing que abrange todas as camadas mencionadas: camada de conteúdo, camada de contêiner, camada de layout, camada de janela e camada de aplicação. Neste exemplo, criaremos uma simples calculadora GUI.
+
+```java
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CalculadoraSwing {
+    public static void main(String[] args) {
+        // Camada de Aplicação
+        SwingUtilities.invokeLater(() -> {
+            criarGUI();
+        });
+    }
+
+    private static void criarGUI() {
+        // Camada de Janela
+        JFrame frame = new JFrame("Calculadora");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 400);
+
+        // Camada de Contêiner
+        JPanel panel = new JPanel();
+        frame.add(panel);
+
+        // Camada de Layout
+        panel.setLayout(new GridLayout(5, 4));
+
+        // Camada de Conteúdo
+        JTextField visor = new JTextField();
+        visor.setEditable(false);
+        panel.add(visor);
+
+        String[] botoes = {
+            "7", "8", "9", "/",
+            "4", "5", "6", "*",
+            "1", "2", "3", "-",
+            "0", ".", "=", "+"
+        };
+
+        for (String botao : botoes) {
+            JButton button = new JButton(botao);
+            panel.add(button);
+
+            button.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String textoBotao = ((JButton) e.getSource()).getText();
+                    String textoVisor = visor.getText();
+
+                    if (textoBotao.equals("=")) {
+                        try {
+                            // Avaliar a expressão matemática
+                            ScriptEngineManager mgr = new ScriptEngineManager();
+                            ScriptEngine engine = mgr.getEngineByName("JavaScript");
+                            Object resultado = engine.eval(textoVisor);
+                            visor.setText(resultado.toString());
+                        } catch (Exception ex) {
+                            visor.setText("Erro");
+                        }
+                    } else {
+                        visor.setText(textoVisor + textoBotao);
+                    }
+                }
+            });
+        }
+
+        // Exibir a janela
+        frame.setVisible(true);
+    }
+}
+```
+
+Este exemplo cria uma calculadora Swing com uma interface de usuário que inclui todas as camadas mencionadas:
+
+- Camada de Conteúdo: O visor de texto é o componente de conteúdo onde os números e operadores são exibidos.
+- Camada de Contêiner: O painel é usado para conter todos os botões.
+- Camada de Layout: O GridLayout é usado para organizar os botões em uma grade.
+- Camada de Janela: A janela JFrame é a janela de nível superior que contém o painel.
+- Camada de Aplicação: A lógica da calculadora é implementada na camada de aplicação, onde os eventos dos botões são tratados e as operações matemáticas são avaliadas usando um mecanismo de script.
+
+Execute este código Java Swing e você terá uma calculadora simples com todas as camadas demonstradas.
 ## Frames
 
 Em Java Swing, as "frames" são janelas ou contêineres de nível superior que são usados para criar interfaces gráficas de usuário (GUIs). As frames são uma parte fundamental do desenvolvimento de aplicativos Swing, pois fornecem a estrutura principal para a organização de componentes gráficos, como botões, caixas de texto, rótulos e outros widgets, em uma interface de usuário interativa.
