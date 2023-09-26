@@ -32,7 +32,7 @@ A hierarquia de componentes do Java Swing é uma parte fundamental da estrutura 
 
 Em resumo, a hierarquia de componentes do Java Swing fornece uma estrutura organizada para criar interfaces gráficas de usuário ricas e interativas em aplicativos de desktop Java. Os desenvolvedores podem usar uma combinação desses componentes e gerenciadores de layout para projetar interfaces de usuário complexas e funcionais.
 
-Claro, aqui está um exemplo prático que utiliza vários componentes do Java Swing para criar uma aplicação simples de cadastro de clientes. Este exemplo abrange a criação de uma janela principal (`JFrame`) com campos de entrada de texto (`JTextField`), rótulos (`JLabel`), botões (`JButton`) e uma lista de clientes (`JList`).
+Exemplo prático que utiliza vários componentes do Java Swing para criar uma aplicação simples de cadastro de clientes. Este exemplo abrange a criação de uma janela principal (`JFrame`) com campos de entrada de texto (`JTextField`), rótulos (`JLabel`), botões (`JButton`) e uma lista de clientes (`JList`).
 
 ```java
 import javax.swing.*;
