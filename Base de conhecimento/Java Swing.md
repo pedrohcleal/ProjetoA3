@@ -111,3 +111,84 @@ A classe `javax.swing.JFrame` possui muitos métodos que permitem configurar e i
 20. **`repaint()`**: Solicita uma repintura da frame.
 
 Estes são alguns dos métodos mais comuns associados à classe `JFrame`. Lembre-se de que a documentação oficial do Java e tutoriais específicos podem fornecer mais detalhes sobre cada método e seu uso.
+
+## Labels
+
+No Java Swing, as "labels" geralmente se referem aos componentes gráficos usados para exibir texto ou ícones em uma interface gráfica de usuário (GUI). As labels são usadas para fornecer informações, rótulos ou descrições em um aplicativo Swing. Elas são representadas pela classe `JLabel` e são uma parte fundamental na criação de interfaces de usuário amigáveis e informativas. Vamos explorar em detalhes como usar labels no Java Swing:
+
+1. **Importação de Pacotes**:
+   Certifique-se de que você importe os pacotes necessários no seu arquivo Java para poder usar a classe `JLabel`. Normalmente, você precisará das seguintes importações:
+
+   ```java
+   import javax.swing.JFrame;
+   import javax.swing.JLabel;
+   import javax.swing.JPanel;
+   ```
+
+2. **Criação de uma JLabel**:
+   Para criar uma label, você precisa instanciar a classe `JLabel`. Você pode especificar o texto ou o ícone que deseja exibir na label durante a criação. Aqui estão alguns exemplos:
+
+   - Criando uma label com texto:
+     ```java
+     JLabel label = new JLabel("Isso é uma label.");
+     ```
+
+   - Criando uma label com um ícone:
+     ```java
+     ImageIcon icon = new ImageIcon("caminho/para/seu/icone.png");
+     JLabel label = new JLabel(icon);
+     ```
+
+3. **Configuração de Propriedades**:
+   Você pode configurar várias propriedades de uma label, como fonte, cor de texto, alinhamento, entre outras. Aqui estão alguns exemplos:
+
+   - Alterando a fonte do texto:
+     ```java
+     label.setFont(new Font("Arial", Font.BOLD, 16));
+     ```
+
+   - Definindo a cor do texto:
+     ```java
+     label.setForeground(Color.BLUE);
+     ```
+
+   - Alinhando o texto:
+     ```java
+     label.setHorizontalAlignment(JLabel.CENTER); // Alinha o texto no centro horizontalmente
+     ```
+
+4. **Adição ao Contêiner**:
+   Para exibir uma label em sua interface gráfica, você deve adicioná-la a um contêiner Swing, como um `JFrame`, um `JPanel`, entre outros. Por exemplo:
+
+   ```java
+   JFrame frame = new JFrame("Exemplo de Label");
+   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+   JPanel panel = new JPanel();
+   panel.add(label);
+
+   frame.add(panel);
+   frame.pack();
+   frame.setVisible(true);
+   ```
+
+5. **Tratamento de Eventos**:
+   Em alguns casos, você pode adicionar tratamento de eventos a uma label. Por exemplo, você pode adicionar um ouvinte de clique para responder a eventos de clique do mouse na label.
+
+   ```java
+   label.addMouseListener(new MouseAdapter() {
+       @Override
+       public void mouseClicked(MouseEvent e) {
+           // Lógica a ser executada quando a label for clicada
+       }
+   });
+   ```
+
+6. **Atualização de Conteúdo**:
+   Você pode atualizar o conteúdo de uma label em tempo de execução chamando métodos como `setText()` para alterar o texto exibido ou `setIcon()` para alterar o ícone.
+
+   ```java
+   label.setText("Novo texto na label");
+   ```
+
+Essas são as principais informações sobre o uso de labels no Java Swing. Elas são muito úteis para exibir informações, rótulos e elementos gráficos em interfaces de usuário Swing. Você pode personalizar as labels de acordo com suas necessidades específicas para criar interfaces de usuário interativas e informativas.
