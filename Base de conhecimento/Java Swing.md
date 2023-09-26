@@ -65,3 +65,49 @@ public class MinhaFrameSwing {
 ```
 
 Este é apenas um exemplo básico para demonstrar a criação de uma frame em Java Swing. À medida que você se aprofunda no desenvolvimento de GUIs Swing, poderá adicionar mais componentes, configurar layouts personalizados e lidar com eventos para criar interfaces de usuário mais interativas e complexas.
+
+## Métodos mais utilizados nos frames
+
+A classe `javax.swing.JFrame` possui muitos métodos que permitem configurar e interagir com a frame em uma interface gráfica Swing. Aqui estão alguns dos métodos mais comuns em relação a uma frame:
+
+1. **`setTitle(String title)`**: Define o título da frame que aparece na barra de título da janela.
+
+2. **`setSize(int width, int height)`**: Define as dimensões da frame em pixels (largura e altura).
+
+3. **`setDefaultCloseOperation(int operation)`**: Define o comportamento de fechamento da frame quando o botão de fechar é clicado. Você pode usar constantes como `JFrame.EXIT_ON_CLOSE`, `JFrame.DISPOSE_ON_CLOSE`, `JFrame.HIDE_ON_CLOSE` e outras.
+
+4. **`setVisible(boolean visible)`**: Define se a frame é visível ou não. Use `true` para torná-la visível e `false` para ocultá-la.
+
+5. **`setResizable(boolean resizable)`**: Permite ou impede que o usuário redimensione a frame.
+
+6. **`setLayout(LayoutManager manager)`**: Define o gerenciador de layout para organizar os componentes dentro da frame.
+
+7. **`add(Component comp)`**: Adiciona um componente à frame. Este método é usado para colocar outros componentes (como botões, rótulos, etc.) dentro da frame.
+
+8. **`remove(Component comp)`**: Remove um componente da frame.
+
+9. **`pack()`**: Ajusta automaticamente o tamanho da frame para acomodar todos os seus componentes, com base nas preferências de layout.
+
+10. **`setLocation(int x, int y)`**: Define a posição da frame na tela, em pixels a partir do canto superior esquerdo.
+
+11. **`setLocationRelativeTo(Component c)`**: Define a posição da frame em relação a outro componente. Útil para centralizar a frame em relação a um componente específico.
+
+12. **`setIconImage(Image image)`**: Define o ícone da frame, que aparece na barra de título e na barra de tarefas (quando minimizada).
+
+13. **`toFront()`**: Coloca a frame na frente de todas as outras janelas.
+
+14. **`toBack()`**: Coloca a frame atrás de todas as outras janelas.
+
+15. **`setAlwaysOnTop(boolean always)`**: Define se a frame deve estar sempre no topo de outras janelas.
+
+16. **`setExtendedState(int state)`**: Define o estado estendido da frame (normal, maximizado, minimizado, etc.).
+
+17. **`setJMenuBar(JMenuBar menubar)`**: Define a barra de menu da frame.
+
+18. **`getContentPane()`**: Retorna o painel de conteúdo da frame, onde os componentes são adicionados.
+
+19. **`validate()`**: Força a validação de todos os componentes na frame, o que pode ser útil após alterações no layout.
+
+20. **`repaint()`**: Solicita uma repintura da frame.
+
+Estes são alguns dos métodos mais comuns associados à classe `JFrame`. Lembre-se de que a documentação oficial do Java e tutoriais específicos podem fornecer mais detalhes sobre cada método e seu uso.
