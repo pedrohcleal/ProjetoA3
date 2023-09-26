@@ -23,3 +23,45 @@ Aqui estão algumas características e conceitos-chave relacionados ao Java Swin
 9. **Internacionalização e Localização:** O Swing também oferece suporte à internacionalização e localização, o que facilita a criação de aplicativos que podem ser adaptados para diferentes idiomas e regiões.
 
 Em resumo, o Java Swing é uma poderosa biblioteca para a criação de interfaces gráficas em Java, permitindo que os desenvolvedores criem aplicativos de desktop visualmente atraentes e interativos. É amplamente utilizado em aplicações de desktop Java, embora tenha enfrentado concorrência de outras tecnologias mais modernas, como JavaFX, nos últimos anos.
+
+## Frames
+
+Em Java Swing, as "frames" são janelas ou contêineres de nível superior que são usados para criar interfaces gráficas de usuário (GUIs). As frames são uma parte fundamental do desenvolvimento de aplicativos Swing, pois fornecem a estrutura principal para a organização de componentes gráficos, como botões, caixas de texto, rótulos e outros widgets, em uma interface de usuário interativa.
+
+A classe `javax.swing.JFrame` é usada para criar frames em Java Swing. Aqui estão algumas características e conceitos importantes relacionados às frames no Java Swing:
+
+1. **JFrame**: A classe `JFrame` é uma subclasse da classe `java.awt.Frame` e estende-a para fornecer funcionalidades específicas para GUIs Swing. Você pode criar uma instância de `JFrame` para criar uma janela gráfica na qual você pode adicionar componentes Swing.
+
+2. **Layout Manager**: As frames geralmente usam gerenciadores de layout (layout managers) para organizar e posicionar os componentes dentro delas. Alguns dos gerenciadores de layout comuns incluem `FlowLayout`, `BorderLayout`, `GridLayout` e `GridBagLayout`. Eles ajudam a garantir que os componentes sejam dispostos de maneira adequada e responsiva.
+
+3. **Componentes**: As frames geralmente contêm uma variedade de componentes, como botões, rótulos, campos de texto, listas e muito mais. Esses componentes são adicionados à frame usando os métodos apropriados, como `add()`. Cada componente é colocado em um contêiner que é, por sua vez, colocado na frame.
+
+4. **Eventos**: As frames podem responder a eventos gerados pelos componentes, como cliques de botões, entrada de teclado, movimento do mouse, etc. Isso é feito registrando ou associando ouvintes de eventos (event listeners) aos componentes relevantes.
+
+5. **Título e Dimensões**: Você pode definir o título da frame usando o método `setTitle()` e especificar suas dimensões usando métodos como `setSize()` ou `pack()`.
+
+6. **Visibilidade**: É importante chamar o método `setVisible(true)` para tornar a frame visível quando ela estiver pronta para ser exibida na tela.
+
+7. **Fechamento**: Você pode controlar o comportamento de fechamento da frame, como ocultá-la ou encerrar o programa quando a frame é fechada, usando métodos como `setDefaultCloseOperation()`.
+
+Aqui está um exemplo simples de como criar e exibir uma frame em Java Swing:
+
+```java
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class MinhaFrameSwing {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Minha Primeira Frame");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JLabel label = new JLabel("Olá, Mundo!");
+        frame.add(label);
+
+        frame.setVisible(true);
+    }
+}
+```
+
+Este é apenas um exemplo básico para demonstrar a criação de uma frame em Java Swing. À medida que você se aprofunda no desenvolvimento de GUIs Swing, poderá adicionar mais componentes, configurar layouts personalizados e lidar com eventos para criar interfaces de usuário mais interativas e complexas.
