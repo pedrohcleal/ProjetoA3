@@ -306,3 +306,74 @@ No Java Swing, as "labels" geralmente se referem aos componentes gráficos usado
 Essas são as principais informações sobre o uso de labels no Java Swing. Elas são muito úteis para exibir informações, rótulos e elementos gráficos em interfaces de usuário Swing. Você pode personalizar as labels de acordo com suas necessidades específicas para criar interfaces de usuário interativas e informativas.
 
 ## Métodos JLabel
+
+A classe `JLabel` em Java Swing oferece vários métodos para configurar e gerenciar labels em uma interface gráfica. Abaixo, descrevo alguns dos métodos mais comuns da classe `JLabel`:
+
+1. **`setText(String text)`**:
+   Este método define o texto a ser exibido na label. Você pode passar uma string como argumento para definir o conteúdo da label. Por exemplo:
+
+   ```java
+   JLabel label = new JLabel();
+   label.setText("Isso é um texto de exemplo.");
+   ```
+
+2. **`setIcon(Icon icon)`**:
+   Este método define um ícone a ser exibido na label. Você precisa passar um objeto `Icon` como argumento. Geralmente, isso é usado quando você deseja exibir uma imagem ao lado do texto. Por exemplo:
+
+   ```java
+   ImageIcon myIcon = new ImageIcon("caminho/para/seu/icone.png");
+   JLabel label = new JLabel();
+   label.setIcon(myIcon);
+   ```
+
+3. **`setFont(Font font)`**:
+   Este método define a fonte a ser usada para o texto na label. Você precisa passar um objeto `Font` como argumento para especificar o estilo da fonte, tamanho, etc. Por exemplo:
+
+   ```java
+   Font customFont = new Font("Arial", Font.BOLD, 16);
+   label.setFont(customFont);
+   ```
+
+4. **`setForeground(Color fg)`**:
+   Este método define a cor do texto na label. Você pode passar um objeto `Color` como argumento para especificar a cor do texto. Por exemplo:
+
+   ```java
+   label.setForeground(Color.BLUE);
+   ```
+
+5. **`setHorizontalAlignment(int alignment)`**:
+   Este método define o alinhamento horizontal do texto na label. Os valores possíveis para `alignment` incluem `JLabel.LEFT`, `JLabel.CENTER`, `JLabel.RIGHT`, etc. Por exemplo:
+
+   ```java
+   label.setHorizontalAlignment(JLabel.CENTER);
+   ```
+
+6. **`setVerticalAlignment(int alignment)`**:
+   Este método define o alinhamento vertical do texto na label. Os valores possíveis para `alignment` incluem `JLabel.TOP`, `JLabel.CENTER`, `JLabel.BOTTOM`, etc.
+
+   ```java
+   label.setVerticalAlignment(JLabel.CENTER);
+   ```
+
+7. **`setToolTipText(String text)`**:
+   Este método define uma dica de ferramenta que é exibida quando o usuário passa o mouse sobre a label. Isso pode ser útil para fornecer informações adicionais. Por exemplo:
+
+   ```java
+   label.setToolTipText("Isso é uma dica de ferramenta.");
+   ```
+
+8. **`setEnabled(boolean enabled)`**:
+   Este método define se a label é habilitada ou desabilitada. Quando uma label está desabilitada, ela aparece em tons mais claros e não responde a eventos. Por padrão, as labels são habilitadas. Por exemplo:
+
+   ```java
+   label.setEnabled(false); // Desabilita a label
+   ```
+
+9. **`setOpaque(boolean isOpaque)`**:
+   Este método define se a label é opaca ou transparente. Quando uma label é opaca, ela pode cobrir componentes subjacentes. Por padrão, as labels são opacas. Por exemplo:
+
+   ```java
+   label.setOpaque(true); // Torna a label opaca
+   ```
+
+Estes são apenas alguns dos métodos mais comuns disponíveis na classe `JLabel`. Eles permitem que você personalize a aparência e o comportamento das labels em sua interface gráfica Swing de acordo com suas necessidades específicas.
