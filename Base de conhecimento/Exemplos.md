@@ -1,6 +1,6 @@
 # Exemplos de aplicações
 
-#1 - Hierarquia
+# 1 - Hierarquia
 A hierarquia de componentes do Java Swing é uma parte fundamental da estrutura de desenvolvimento de interfaces gráficas de usuário (GUI) no Java. O Swing é uma biblioteca de componentes GUI que permite criar aplicativos de desktop com uma aparência e comportamento consistentes em várias plataformas. A hierarquia de componentes do Swing é organizada em uma árvore, onde cada componente é um nó na árvore e possui um relacionamento hierárquico com outros componentes. Vou explicar os principais componentes dessa hierarquia:
 
 1. **JFrame**: O `JFrame` é o principal contêiner de nível superior que representa a janela principal do aplicativo. Ele pode conter outros componentes, como botões, painéis e menus. Um aplicativo Swing geralmente começa com a criação de um `JFrame`.
