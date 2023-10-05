@@ -42,10 +42,10 @@ public class DatabaseUtil {
         String sql = "INSERT INTO clientusers (nome, idade, sexo, LP1, LP2) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, username);
-        preparedStatement.setString(2, username);
-        preparedStatement.setString(3, username);
-        preparedStatement.setString(4, username);
-        preparedStatement.setString(5, username);
+        preparedStatement.setString(2, idade);
+        preparedStatement.setString(3, sexo);
+        preparedStatement.setString(4, lp1);
+        preparedStatement.setString(5, lp2);
 
         int rowsAffected = preparedStatement.executeUpdate();
 
