@@ -40,8 +40,8 @@ public class UserRegistration extends javax.swing.JFrame {
         idadeField = new javax.swing.JTextField();
         nomeField = new javax.swing.JTextField();
         sexoBox = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        LPBox2 = new javax.swing.JComboBox<>();
+        LPBox1 = new javax.swing.JComboBox<>();
         javax.swing.JButton clearBtt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,14 +87,19 @@ public class UserRegistration extends javax.swing.JFrame {
             }
         });
 
-        sexoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        sexoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "Masculino", "Feminino" }));
         sexoBox.setToolTipText("Selecionar sexo");
+        sexoBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sexoBoxActionPerformed(evt);
+            }
+        });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "romance", "ficcao", "tecnico" }));
+        LPBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "romance", "ficcao", "tecnico" }));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "romance", "ficcao", "tecnico" }));
-        jComboBox1.setToolTipText("Inserir livro prefirido nº 1 do usuário");
-        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        LPBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "romance", "ficcao", "tecnico" }));
+        LPBox1.setToolTipText("Inserir livro prefirido nº 1 do usuário");
+        LPBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         clearBtt.setText("Limpar");
         clearBtt.addActionListener(new java.awt.event.ActionListener() {
@@ -131,8 +136,8 @@ public class UserRegistration extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(sexoBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LPBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LPBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(idadeField)
                                     .addComponent(nomeField))))
                         .addGap(62, 62, 62))))
@@ -165,9 +170,9 @@ public class UserRegistration extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                        .addComponent(LPBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LPBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerBtt, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,8 +189,8 @@ public class UserRegistration extends javax.swing.JFrame {
         String nome = nomeField.getText();
         String idade = idadeField.getText();
         String sexo = (String) sexoBox.getSelectedItem();
-        String lp1 = (String) jComboBox1.getSelectedItem();
-        String lp2 = (String) jComboBox2.getSelectedItem();
+        String lp1 = (String) LPBox1.getSelectedItem();
+        String lp2 = (String) LPBox2.getSelectedItem();
         System.out.println(nome + idade + sexo + lp1 + lp2);
         boolean userAdded = DatabaseUtil.addUser(nome, idade, sexo, lp1, lp2);
         if (userAdded){
@@ -205,11 +210,23 @@ public class UserRegistration extends javax.swing.JFrame {
 
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed
         // TODO add your handling code here:
+        AdminGUI abrirAdmin = new AdminGUI();
+        abrirAdmin.setVisible(true);
+        dispose();
     }//GEN-LAST:event_returnBttActionPerformed
 
     private void clearBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBttActionPerformed
         // TODO add your handling code here:
+        nomeField.setText("");
+        idadeField.setText("");
+        sexoBox.setSelectedItem("null");
+        LPBox1.setSelectedItem("null");
+        LPBox2.setSelectedItem("null");
     }//GEN-LAST:event_clearBttActionPerformed
+
+    private void sexoBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sexoBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,9 +265,9 @@ public class UserRegistration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> LPBox1;
+    private javax.swing.JComboBox<String> LPBox2;
     private javax.swing.JTextField idadeField;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
