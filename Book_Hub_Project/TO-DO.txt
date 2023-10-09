@@ -1,0 +1,18 @@
+-> implemetar gerador de username ou mostrar id gerado para cada conta criada
+
+-> implementar escolher se for admin ou usuário e ir para páginas diferentes
+
+-> implementar GUI ADMIN - excluir usuário no Java Swing
+
+-> implementar cadastro de livros(clientes)
+
+-> implementar visualização de livros(clientes)
+
+-> implementar visualização Admin de usuários Java Swing
+
+-> Editar todos os GUI com o tema do BookHub
+
+-> implementar segurança: 
+*Limitar a criação de senha
+*Avisos
+*Retificar e limitar dados -> int, String...
