@@ -5,7 +5,6 @@
 
 
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author Administrator
@@ -30,14 +29,15 @@ public class Login extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
         passwordField1 = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
         loginBtt = new javax.swing.JButton();
         resetBtt = new javax.swing.JButton();
         textField1 = new javax.swing.JTextField();
         sairBtt = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
@@ -45,68 +45,96 @@ public class Login extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("BookHub");
+        setBackground(new java.awt.Color(51, 153, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(java.awt.Color.gray);
+        setIconImage(getIconImage());
+        setIconImages(getIconImages());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Usuário");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 143, 121, 68));
-
+        passwordField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         passwordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(passwordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 262, 432, 55));
+        getContentPane().add(passwordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 265, 430, 50));
 
-        jLabel2.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel2.setText("Senha");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 269, 121, 41));
-
+        loginBtt.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         loginBtt.setText("Login");
+        loginBtt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        loginBtt.setBorderPainted(false);
         loginBtt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginBttActionPerformed(evt);
             }
         });
-        getContentPane().add(loginBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 335, 157, 75));
+        getContentPane().add(loginBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 130, 50));
 
+        resetBtt.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         resetBtt.setText("Reset");
+        resetBtt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        resetBtt.setBorderPainted(false);
         resetBtt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetBttActionPerformed(evt);
             }
         });
-        getContentPane().add(resetBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 335, 169, 75));
+        getContentPane().add(resetBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 140, 50));
 
+        textField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         textField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 143, 432, 68));
+        getContentPane().add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 430, 50));
 
+        sairBtt.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         sairBtt.setText("Sair");
+        sairBtt.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sairBtt.setBorderPainted(false);
         sairBtt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairBttActionPerformed(evt);
             }
         });
-        getContentPane().add(sairBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(503, 335, 168, 75));
+        getContentPane().add(sairBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, 140, 50));
 
-        jLabel3.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Senha");
+        jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.white, java.awt.Color.white));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 120, 70));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Usuário");
+        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 121, 68));
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("BookHub Login");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 16, 469, 109));
+        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 340, 60));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookhub_logo_livroMINI.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 160, 130));
 
         jLabel4.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\819224064\\Desktop\\ProjetoA3\\Book_Hub_Project\\vector-JUL-2020-129.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Documents\\GitHub\\ProjetoA3\\Book_Hub_Project\\src\\vector-JUL-2020-129.jpg")); // NOI18N
         jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 540));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 730, 550));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBttActionPerformed
@@ -184,6 +212,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton loginBtt;
