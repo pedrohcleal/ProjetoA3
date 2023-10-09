@@ -35,28 +35,33 @@ public class DatabaseUtil {
     }
     
 //Adicionar usuário no BD
- public static boolean addUser(String username, String idade, String sexo, String lp1, String lp2) {
+ public static boolean addUser(String username, String senha, String idade, String sexo, String LP1, String LP2) {
     try {
         Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                
+        // insira os valores na tabela clientusers
+        String sqlAllUsers = "INSERT INTO allusers (Nome, Senha, Sexo, Idade, LP1, LP2, Tipo_de_usuário) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
+        PreparedStatement AllUsers = connection.prepareStatement(sqlAllUsers);
+        AllUsers.setString(1, username);
+        AllUsers.setString(2, senha);
+        AllUsers.setString(3, sexo);
+        AllUsers.setString(4, idade);
+        AllUsers.setString(5, LP1);
+        AllUsers.setString(6, LP2);
+        AllUsers.setString(7, "user");
 
-        String sql = "INSERT INTO clientusers (nome, idade, sexo, LP1, LP2) VALUES (?, ?, ?, ?, ?)";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, username);
-        preparedStatement.setString(2, idade);
-        preparedStatement.setString(3, sexo);
-        preparedStatement.setString(4, lp1);
-        preparedStatement.setString(5, lp2);
-
-        int rowsAffected = preparedStatement.executeUpdate();
-
+        
+        int rowsAffectedClientUsers = AllUsers.executeUpdate();
         connection.close();
-
-        return rowsAffected > 0; // Retorna verdadeiro se pelo menos uma linha foi afetada (usuário adicionado com sucesso)
+        // Verifique se ambas as inserções foram bem-sucedidas
+        return rowsAffectedClientUsers > 0;
     } catch (SQLException e) {
         e.printStackTrace();
         return false;
     }
 }
+
  
 //Remover usuário no BD
  public static boolean removeUser(String username, String idade, String sexo, String lp1, String lp2) {

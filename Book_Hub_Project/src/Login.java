@@ -49,8 +49,6 @@ public class Login extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 153, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.gray);
-        setIconImage(getIconImage());
-        setIconImages(getIconImages());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         passwordField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -131,7 +129,8 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 51, 51));
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Documents\\GitHub\\ProjetoA3\\Book_Hub_Project\\src\\vector-JUL-2020-129.jpg")); // NOI18N
         jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 730, 550));
+        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));
 
         pack();
         setLocationRelativeTo(null);
