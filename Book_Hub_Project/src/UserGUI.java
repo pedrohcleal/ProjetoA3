@@ -29,22 +29,28 @@ public class UserGUI extends javax.swing.JFrame {
         viewBooksBtt = new javax.swing.JButton();
         returnBtt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        registerBtt.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         registerBtt.setText("Cadastrar livro");
         registerBtt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerBttActionPerformed(evt);
             }
         });
+        getContentPane().add(registerBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 298, 62));
 
+        viewBooksBtt.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         viewBooksBtt.setText("Visualizar Livros");
         viewBooksBtt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBooksBttActionPerformed(evt);
             }
         });
+        getContentPane().add(viewBooksBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 198, 298, 61));
 
         returnBtt.setText("Voltar");
         returnBtt.addActionListener(new java.awt.event.ActionListener() {
@@ -52,43 +58,17 @@ public class UserGUI extends javax.swing.JFrame {
                 returnBttActionPerformed(evt);
             }
         });
+        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 293, 121, 63));
 
-        jLabel1.setFont(new java.awt.Font("Matura MT Script Capitals", 2, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Página Inicial");
+        jLabel1.setText("Bem vindo ao BookHub");
+        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 437, 86));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(viewBooksBtt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(registerBtt, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(returnBtt, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(registerBtt, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(viewBooksBtt, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(returnBtt, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,6 +132,7 @@ public class UserGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton registerBtt;
     private javax.swing.JButton returnBtt;
     private javax.swing.JButton viewBooksBtt;

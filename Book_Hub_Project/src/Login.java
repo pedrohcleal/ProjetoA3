@@ -127,7 +127,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 160, 130));
 
         jLabel4.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Administrator\\Documents\\GitHub\\ProjetoA3\\Book_Hub_Project\\src\\vector-JUL-2020-129.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));

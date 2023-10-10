@@ -245,7 +245,7 @@
           <Color blue="33" green="33" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Administrator\Documents\GitHub\ProjetoA3\Book_Hub_Project\src\vector-JUL-2020-129.jpg"/>
+          <Image iconType="3" name="/vector-JUL-2020-129.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel4"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
