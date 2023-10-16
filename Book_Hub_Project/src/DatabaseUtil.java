@@ -8,16 +8,18 @@ public class DatabaseUtil {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/bd-bookhub";
     private static final String DB_USER = "root";
     private static final String DB_PASS = "root";
+    private Connection conexao;
     
     //Checa login- user e senha
-    public static boolean checkLogin(String username, String password) {
+    public static boolean checkLogin(String username, String password, String typeUser) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-            String sql = "SELECT * FROM allusers WHERE nome = ? AND senha = ?";
+            String sql = "SELECT * FROM allusers WHERE nome = ? AND senha = ? AND Tipo_de_usuário = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
+            preparedStatement.setString(3, typeUser);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -62,7 +64,7 @@ public class DatabaseUtil {
     }
 }
 
- 
+
 //Remover usuário no BD
  public static boolean removeUser(String username, String idade, String sexo, String lp1, String lp2) {
     try {
@@ -85,8 +87,14 @@ public class DatabaseUtil {
         e.printStackTrace();
         return false;
     }
-}
+ }
 
- 
-   
+public static Connection conectar() {
+    try {
+        return DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return null;
+    }
+    }
 }

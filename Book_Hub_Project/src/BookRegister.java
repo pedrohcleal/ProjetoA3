@@ -31,13 +31,16 @@ public class BookRegister extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Cadastar livros");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 27, 147, 72));
 
         returnBtt.setText("Voltar");
         returnBtt.addActionListener(new java.awt.event.ActionListener() {
@@ -45,46 +48,19 @@ public class BookRegister extends javax.swing.JFrame {
                 returnBttActionPerformed(evt);
             }
         });
+        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 371, -1, -1));
 
         jButton2.setText("jButton2");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 371, -1, -1));
 
         jButton3.setText("jButton3");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 371, -1, -1));
 
         jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jButton2)
-                .addGap(98, 98, 98)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addComponent(returnBtt)
-                .addGap(203, 203, 203))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(returnBtt)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(32, 32, 32))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 690, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,6 +113,7 @@ public class BookRegister extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton returnBtt;
     // End of variables declaration//GEN-END:variables
 }

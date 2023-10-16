@@ -38,6 +38,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        typeUser = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
@@ -87,7 +88,7 @@ public class Login extends javax.swing.JFrame {
                 textField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 430, 50));
+        getContentPane().add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 430, 50));
 
         sairBtt.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         sairBtt.setText("Sair");
@@ -126,6 +127,16 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookhub_logo_livroMINI.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 160, 130));
 
+        typeUser.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        typeUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "user", "admin" }));
+        typeUser.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        typeUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeUserActionPerformed(evt);
+            }
+        });
+        getContentPane().add(typeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 160, 40));
+
         jLabel4.setForeground(new java.awt.Color(255, 51, 51));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -141,8 +152,20 @@ public class Login extends javax.swing.JFrame {
          String username = textField1.getText();
         char[] password = passwordField1.getPassword();
         String passwordStr = new String(password);
+        String typeUser1 = (String) typeUser.getSelectedItem();
         System.out.println(username + passwordStr);
-        if (DatabaseUtil.checkLogin(username, passwordStr)) {
+        if (typeUser1.equals("user")){
+            if (DatabaseUtil.checkLogin(username, passwordStr, typeUser1)) {
+            JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
+            UserGUI guiUser = new UserGUI();
+            guiUser.setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Login falhou. Tente novamente.");
+        }
+        }
+        if (typeUser1.equals("admin")){
+            if (DatabaseUtil.checkLogin(username, passwordStr, typeUser1)) {
             JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
             UserRegistration userRegistration = new UserRegistration();
             userRegistration.setVisible(true);
@@ -150,6 +173,8 @@ public class Login extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Login falhou. Tente novamente.");
         }
+        }
+        
     }//GEN-LAST:event_loginBttActionPerformed
 
     private void passwordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordField1ActionPerformed
@@ -170,6 +195,10 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_sairBttActionPerformed
+
+    private void typeUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,5 +248,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton resetBtt;
     private javax.swing.JButton sairBtt;
     private javax.swing.JTextField textField1;
+    private javax.swing.JComboBox<String> typeUser;
     // End of variables declaration//GEN-END:variables
 }
