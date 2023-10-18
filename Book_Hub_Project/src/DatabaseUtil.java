@@ -8,8 +8,7 @@ public class DatabaseUtil {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/bd-bookhub";
     private static final String DB_USER = "root";
     private static final String DB_PASS = "root";
-    private Connection conexao;
-    
+       
     //Checa login- user e senha
     public static boolean checkLogin(String username, String password, String typeUser) {
         try {
@@ -88,13 +87,28 @@ public class DatabaseUtil {
         return false;
     }
  }
-
-public static Connection conectar() {
+public static boolean addBook(String titulo, String autor, String tipo, int nota) {
     try {
-        return DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+        Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                
+        // insira os valores na tabela clientusers
+        String sqlAllUsers = "INSERT INTO livros (titulo, autor, tipo, nota_cliente)"
+                + " VALUES (?, ?, ?, ?)";
+        
+        PreparedStatement AllUsers = connection.prepareStatement(sqlAllUsers);
+        AllUsers.setString(1, titulo);
+        AllUsers.setString(2, autor);
+        AllUsers.setString(3, tipo);
+        AllUsers.setInt(4, nota);
+                
+        int rowsAffectedClientUsers = AllUsers.executeUpdate();
+        connection.close();
+        // Verifique se ambas as inserções foram bem-sucedidas
+        return rowsAffectedClientUsers > 0;
     } catch (SQLException e) {
         e.printStackTrace();
-        return null;
+        return false;
     }
-    }
+}
+
 }

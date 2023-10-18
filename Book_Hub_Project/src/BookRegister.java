@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -29,8 +32,16 @@ public class BookRegister extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         returnBtt = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        cadastrarBtt = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        autorField = new javax.swing.JTextField();
+        tituloField = new javax.swing.JTextField();
+        notaComboBox = new javax.swing.JComboBox<>();
+        tipoComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -38,9 +49,12 @@ public class BookRegister extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Cadastar livros");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 27, 147, 72));
+        jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 280, 30));
 
         returnBtt.setText("Voltar");
         returnBtt.addActionListener(new java.awt.event.ActionListener() {
@@ -48,19 +62,76 @@ public class BookRegister extends javax.swing.JFrame {
                 returnBttActionPerformed(evt);
             }
         });
-        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 371, -1, -1));
+        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 130, 50));
 
         jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 371, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 160, 50));
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 371, -1, -1));
+        cadastrarBtt.setText("Cadastrar");
+        cadastrarBtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarBttActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cadastrarBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 130, 50));
 
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Tipo");
+        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 200, 40));
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Título");
+        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 200, 40));
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Autor");
+        jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 200, 40));
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Nota");
+        jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 200, 40));
+
+        autorField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autorFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(autorField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 250, 50));
+        getContentPane().add(tituloField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 250, 50));
+
+        notaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        notaComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notaComboBoxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(notaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 180, -1));
+
+        tipoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Romance", "Ficção", "Técnico" }));
+        tipoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoComboBoxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tipoComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 180, -1));
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 690, 430));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -71,6 +142,33 @@ public class BookRegister extends javax.swing.JFrame {
         returnGUI.setVisible(true);
         dispose();     
     }//GEN-LAST:event_returnBttActionPerformed
+
+    private void notaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notaComboBoxActionPerformed
+
+    private void autorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autorFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_autorFieldActionPerformed
+
+    private void tipoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoComboBoxActionPerformed
+
+    private void cadastrarBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarBttActionPerformed
+        // TODO add your handling code here:
+        String titulo = tituloField.getText();
+        String autor = autorField.getText();
+        String tipo = (String) tipoComboBox.getSelectedItem();
+        String notaString = (String) notaComboBox.getSelectedItem();
+        int nota = Integer.parseInt(notaString);
+        boolean bookAdded = DatabaseUtil.addBook(titulo, autor, tipo, nota);
+        if (bookAdded){
+            JOptionPane.showMessageDialog(null,"Livro adicionado com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null,"Livro adicionado com sucesso!");
+        }
+    }//GEN-LAST:event_cadastrarBttActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,12 +206,20 @@ public class BookRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField autorField;
+    private javax.swing.JButton cadastrarBtt;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JComboBox<String> notaComboBox;
     private javax.swing.JButton returnBtt;
+    private javax.swing.JComboBox<String> tipoComboBox;
+    private javax.swing.JTextField tituloField;
     // End of variables declaration//GEN-END:variables
 }
