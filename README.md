@@ -1,87 +1,52 @@
-# ProjetoA3
-Projeto A3 - Universidade São Judas Tadeu
+# BookHub
 
+## Visão Geral
+O BookHub é uma aplicação para desktop com uma interface gráfica e um banco de dados SQL como backend. Foi desenvolvido para gerenciar contas de usuário e fornecer acesso a várias funcionalidades. Este Readme fornece uma visão geral do projeto, incluindo as tecnologias usadas e instruções para configurar e executar a aplicação.
 
-# EXEMPO - README abaixo
+## Funcionalidades
+- Autenticação de Usuários: Os usuários podem fazer login com suas credenciais, e o sistema distingue entre usuários regulares e administradores.
+- Registro de Usuários: Novos usuários podem se registrar no sistema fornecendo informações essenciais.
+- Acesso de Administrador: Os administradores têm acesso a funcionalidades adicionais para gerenciar usuários e o sistema.
 
-Projeto introdutório para subir uma aplicação(deploy) API em Django + PostgreSQL com a utilização de containers da ferramenta Docker
+## Tecnologias Utilizadas
+- **Linguagem de Programação:** Java
+- **Framework de GUI:** Java Swing
+- **Banco de Dados:** SQL
+- **IDE:** NetBeans
 
-## 🚀 Começando
+## Como Começar
+Siga essas etapas para configurar e executar a aplicação BookHub em sua máquina local:
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+1. **Clonar o Repositório:** Comece clonando o repositório do BookHub em sua máquina local:
 
-### 📋 Pré-requisitos
+   ```bash
+   git clone https://github.com/seunome/BookHub.git
+   ```
 
-```
-Intellij-> https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC
-MySQL -> [https://getcomposer.org/download/](https://dev.mysql.com/downloads/installer/)
-PostGreeSQL -> https://www.postgresql.org/download/
+2. **Abrir o Projeto:** Abra o projeto no NetBeans IDE. Você pode precisar configurar as configurações do Java Swing e do banco de dados de acordo com o seu ambiente.
 
-Dbeaver -> https://dbeaver.io/download/
-Git -> https://git-scm.com/downloads
-Linux kernel update package -> https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-```
+3. **Configuração do Banco de Dados:**
+   - Certifique-se de ter o MySQL instalado em sua máquina local ou em um servidor remoto.
+   - Crie um banco de dados com o nome `bd-bookhub`.
+   - Atualize as configurações de conexão do banco de dados na classe `DatabaseUtil`:
+     - `DB_URL`: Atualize com a URL do seu banco de dados.
+     - `DB_USER`: Defina o nome de usuário do banco de dados.
+     - `DB_PASS`: Defina a senha do banco de dados.
 
-### 🔧 Instalação
+4. **Executar a Aplicação:** Construa e execute o projeto BookHub no NetBeans.
 
-Para iniciar a aplicação, é necessário clonar o projeto do GitHub num diretório de sua preferência:
+5. **Login:**
+   - Use o código fornecido para a tela de login para testar a autenticação de usuários.
+   - Você pode registrar novos usuários e diferenciar entre contas de usuário e administrador.
 
-```shell
-cd "diretorio de sua preferencia"
-git clone https://github.com/pedrohcleal/frexco-desafio-pedro.git
-```
+6. **Personalização:**
+   - Você pode modificar o código da aplicação para adicionar mais funcionalidades ou adaptá-lo às suas necessidades específicas.
 
-Após clonar, execute os seguintes passos:
+## Colaboradores
+- [Seu Nome](https://github.com/seunome)
 
-```
-Abrir o PowerShell no diretório primário e executar o seguinte comando para a aplicação django executar:
-docker-compose up
+## Licença
+Este projeto é licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
 
-Abrir outro terminal e executar a linha de comando para a aplicação nginx abrir:
-docker container run --name ws1 -p 8000:80 -d nginx
-
-```
-
-## ⚙️ Executando os testes
-
-Para verificar se o Django subiu corretamente acesse pelo navegador o seguinte endereço: http://localhost:5000/
-
-Para verificar se o Nginx subiu corretamente acesse pelo navegador o seguinte endereço: http://localhost:8080/
-
-Para verificar se o banco de dados foi criado corretamente:
-* Abrir dbeaver
-* Clique em New Database Connection, escolha PostGreSQL
-* insira as seguintes informações de server -> Host: localhost port: 5432
-* insira as credenciais -> username: postgres password: postgres
-* O banco de dados será aberto em seguida.
-
-## 📦 Desenvolvimento
-
-A aplicação tem como objetivo subir um container como uma aplicação em django com banco de dados, tornando-se de ótima escolha para um software 
-devido a sua escalabilidade e possibilidade de uso de diferentes imagens tornado-se compatível com praticamente qualquer tipo de SO, assemelhando-se a uma VM
-com o uso do Docker e para a manipulação e uso de dados com PostgreSQL + Python.
-
-## 🛠️ Construído com
-
-Mencione as ferramentas que você usou para criar seu projeto
-
-* PowerShell
-* PostgreSQL
-* Virtual Studio Code
-* Github
-* Docker Desktop
-
-## 📌 Versão
-
-Primeira Versão
-
-## ✒️ Autor
-
-Pedro Leal
-
-## 🎁 Expressões de gratidão
-
-* A minha experiência com esse projeto foi inovadora, puder conhecer na prática a principal ferramente utilizada por DevOps, o Docker
-* Aprofundei meu conhecimento sobre Python com a sua biblioteca Django para implementação WEB
-* Obtive um maior entendimento sobre o uso do Github para versionamento e sincronização de código
-* Soube de boas práticas de DevOps com o uso do Continuous Integration e Continuos Delivery, afim de aplicar as metodologias ágeis no versionamento de código.
+## Agradecimentos
+Obrigado por usar o BookHub. Esperamos que esta aplicação seja uma ferramenta valiosa para suas necessidades. Se você encontrar problemas ou tiver sugestões de melhorias, sinta-se à vontade para contribuir para o projeto ou entrar em contato com os colaboradores.
