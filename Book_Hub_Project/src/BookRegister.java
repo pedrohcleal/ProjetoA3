@@ -111,7 +111,7 @@ public class BookRegister extends javax.swing.JFrame {
                 autorFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(autorField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 250, 50));
+        getContentPane().add(autorField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 250, 40));
         getContentPane().add(tituloField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 250, 50));
 
         notaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));

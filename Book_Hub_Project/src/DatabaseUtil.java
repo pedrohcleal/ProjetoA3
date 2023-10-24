@@ -10,22 +10,23 @@ public class DatabaseUtil {
     private static final String DB_PASS = "root";
        
     //Checa login- user e senha
-    public static boolean checkLogin(String username, String password, String typeUser) {
+    public static boolean checkLogin(String username, String password) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-            String sql = "SELECT * FROM allusers WHERE nome = ? AND senha = ? AND Tipo_de_usuário = ?";
+            String sql = "SELECT * FROM allusers WHERE nome = ? AND senha = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
-            preparedStatement.setString(3, typeUser);
-
+            
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
                 connection.close();
                 return true;
             }
+            
+            
 
             connection.close();
         } catch (SQLException e) {
@@ -34,7 +35,30 @@ public class DatabaseUtil {
 
         return false;
     }
-    
+    public static String checkTypeUser(String username, String password) {
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+
+            String sql = "SELECT * FROM allusers WHERE nome = ? AND senha = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String userType = resultSet.getString("Tipo_de_usuário");
+                connection.close();
+                return userType;
+            }
+
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 //Adicionar usuário no BD
  public static boolean addUser(String username, String senha, String idade, String sexo, String LP1, String LP2) {
     try {
