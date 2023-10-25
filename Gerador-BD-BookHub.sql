@@ -6,13 +6,6 @@
     
 	CREATE TABLE allusers (
 		ID INT auto_increment PRIMARY KEY, 
-		nome VARCHAR(50) NOT NULL,
-		senha VARCHAR(50) NOT NULL,
-		tipouser ENUM('admin', 'user') NOT NULL
-	);
-    
-	CREATE TABLE allusers (
-		ID INT auto_increment PRIMARY KEY, 
 		Nome VARCHAR(50) NOT NULL,
 		Senha VARCHAR(50) NOT NULL,
 		Sexo VARCHAR(50),
