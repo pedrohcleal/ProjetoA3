@@ -1,3 +1,11 @@
+
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,13 +16,41 @@
  * @author 819224064
  */
 public class DeleteUserAdmin extends javax.swing.JFrame {
+    private  DefaultTableModel model;
     /**
      * Creates new form DeleteUserAdmin
      */
-    public DeleteUserAdmin() {
-        initComponents();
-    }
+    private void refreshTable() {
+        
+        this.model.addColumn("ID");
+        this.model.addColumn("Nome");
+        this.model.addColumn("Idade");
+        this.model.addColumn("Email");
 
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM allusers");
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String nome = rs.getString("nome");
+                String idade = rs.getString("senha");
+                String email = rs.getString("Tipo_de_usuário");
+
+                this.model.addRow(new Object[]{id, nome, idade, email});
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Model"+ this.model);
+    }
+    
+    public DeleteUserAdmin() {
+        model = new DefaultTableModel();
+        refreshTable();
+        initComponents();                        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,8 +65,8 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         UserField1 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,20 +101,13 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
         UserField1.setOpaque(true);
         getContentPane().add(UserField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 180, 40));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        refreshTable();
+        jTable1.setModel(model);
+        jTable1.setShowGrid(true);
+        System.out.println(model);
+        jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 440, 420));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 460, 410));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -86,7 +115,9 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -132,7 +163,7 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

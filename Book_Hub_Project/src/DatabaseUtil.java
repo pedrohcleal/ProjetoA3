@@ -60,79 +60,85 @@ public class DatabaseUtil {
         return null;
     }
 //Adicionar usuário no BD
- public static boolean addUser(String username, String senha, String idade, String sexo, String LP1, String LP2) {
-    try {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-                
-        // insira os valores na tabela clientusers
-        String sqlAllUsers = "INSERT INTO allusers (Nome, Senha, Sexo, Idade, LP1, LP2, Tipo_de_usuário) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        
-        PreparedStatement AllUsers = connection.prepareStatement(sqlAllUsers);
-        AllUsers.setString(1, username);
-        AllUsers.setString(2, senha);
-        AllUsers.setString(3, sexo);
-        AllUsers.setString(4, idade);
-        AllUsers.setString(5, LP1);
-        AllUsers.setString(6, LP2);
-        AllUsers.setString(7, "user");
+    public static boolean addUser(String username, String senha, String idade, String sexo, String LP1, String LP2) {
+       try {
+           Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-        
-        int rowsAffectedClientUsers = AllUsers.executeUpdate();
-        connection.close();
-        // Verifique se ambas as inserções foram bem-sucedidas
-        return rowsAffectedClientUsers > 0;
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
+           // insira os valores na tabela clientusers
+           String sqlAllUsers = "INSERT INTO allusers (Nome, Senha, Sexo, Idade, LP1, LP2, Tipo_de_usuário) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+           PreparedStatement AllUsers = connection.prepareStatement(sqlAllUsers);
+           AllUsers.setString(1, username);
+           AllUsers.setString(2, senha);
+           AllUsers.setString(3, sexo);
+           AllUsers.setString(4, idade);
+           AllUsers.setString(5, LP1);
+           AllUsers.setString(6, LP2);
+           AllUsers.setString(7, "user");
+
+
+           int rowsAffectedClientUsers = AllUsers.executeUpdate();
+           connection.close();
+           // Verifique se ambas as inserções foram bem-sucedidas
+           return rowsAffectedClientUsers > 0;
+       } catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+       }
     }
-}
 
 
-//Remover usuário no BD
- public static boolean removeUser(String username, String idade, String sexo, String lp1, String lp2) {
-    try {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-        
-        String sql = "DELETE FROM users WHERE nome = ?";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, username);
-        preparedStatement.setString(2, username);
-        preparedStatement.setString(3, username);
-        preparedStatement.setString(4, username);
-        preparedStatement.setString(5, username);
+    //Remover usuário no BD
+    public static boolean removeUser(String username, String idade, String sexo, String lp1, String lp2) {
+       try {
+           Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-        int rowsAffected = preparedStatement.executeUpdate();
+           String sql = "DELETE FROM users WHERE nome = ?";
+           PreparedStatement preparedStatement = connection.prepareStatement(sql);
+           preparedStatement.setString(1, username);
+           preparedStatement.setString(2, username);
+           preparedStatement.setString(3, username);
+           preparedStatement.setString(4, username);
+           preparedStatement.setString(5, username);
 
-        connection.close();
+           int rowsAffected = preparedStatement.executeUpdate();
 
-        return rowsAffected > 0; // Retorna verdadeiro se pelo menos uma linha foi afetada (usuário removido com sucesso)
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
+           connection.close();
+
+           return rowsAffected > 0; // Retorna verdadeiro se pelo menos uma linha foi afetada (usuário removido com sucesso)
+       } catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+       }
     }
- }
-public static boolean addBook(String titulo, String autor, String tipo, int nota) {
-    try {
-        Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-                
-        // insira os valores na tabela clientusers
-        String sqlAllUsers = "INSERT INTO livros (titulo, autor, tipo, nota_cliente)"
-                + " VALUES (?, ?, ?, ?)";
-        
-        PreparedStatement AllUsers = connection.prepareStatement(sqlAllUsers);
-        AllUsers.setString(1, titulo);
-        AllUsers.setString(2, autor);
-        AllUsers.setString(3, tipo);
-        AllUsers.setInt(4, nota);
-                
-        int rowsAffectedClientUsers = AllUsers.executeUpdate();
-        connection.close();
-        // Verifique se ambas as inserções foram bem-sucedidas
-        return rowsAffectedClientUsers > 0;
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
+    public static boolean addBook(String titulo, String autor, String tipo, int nota) {
+       try {
+           Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+
+           // insira os valores na tabela clientusers
+           String sqlAllUsers = "INSERT INTO livros (titulo, autor, tipo, nota_cliente)"
+                   + " VALUES (?, ?, ?, ?)";
+
+           PreparedStatement AllUsers = connection.prepareStatement(sqlAllUsers);
+           AllUsers.setString(1, titulo);
+           AllUsers.setString(2, autor);
+           AllUsers.setString(3, tipo);
+           AllUsers.setInt(4, nota);
+
+           int rowsAffectedClientUsers = AllUsers.executeUpdate();
+           connection.close();
+           // Verifique se ambas as inserções foram bem-sucedidas
+           return rowsAffectedClientUsers > 0;
+       } catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+       }
     }
-}
+    public static Connection getConnection() throws SQLException {
+           // Configurar a URL de conexão, usuário e senha aqui
+           Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+           return connection;
+       }
+    
 
 }
