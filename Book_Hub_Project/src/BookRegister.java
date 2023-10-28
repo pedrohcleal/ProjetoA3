@@ -138,11 +138,13 @@ public class BookRegister extends javax.swing.JFrame {
 
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed
         // TODO add your handling code here:
+        System.out.println(nameID);
+        
         UserGUI returnGUI = new UserGUI();
         returnGUI.setVisible(true);
         dispose();     
     }//GEN-LAST:event_returnBttActionPerformed
-
+    private String nameID;
     private void notaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_notaComboBoxActionPerformed
@@ -222,4 +224,8 @@ public class BookRegister extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> tipoComboBox;
     private javax.swing.JTextField tituloField;
     // End of variables declaration//GEN-END:variables
+
+    void getClass(UserID userID) {
+        this.nameID = userID.usernameID;
+    }
 }

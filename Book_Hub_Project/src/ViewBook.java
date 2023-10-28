@@ -15,6 +15,7 @@ public class ViewBook extends javax.swing.JFrame {
     public ViewBook() {
         initComponents();
     }
+    private String nameID;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,7 +97,9 @@ public class ViewBook extends javax.swing.JFrame {
             }
         });
     }
-
+    void getClass(UserID userID) {
+        this.nameID = userID.usernameID;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

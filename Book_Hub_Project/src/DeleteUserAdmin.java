@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -21,11 +22,12 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
      * Creates new form DeleteUserAdmin
      */
     private void refreshTable() {
-        
+        this.model.setRowCount(0);
+        this.model.setColumnCount(0);
         this.model.addColumn("ID");
         this.model.addColumn("Nome");
-        this.model.addColumn("Idade");
-        this.model.addColumn("Email");
+        this.model.addColumn("Senha");
+        this.model.addColumn("Tipo de user");
 
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement("SELECT * FROM allusers");
@@ -41,7 +43,7 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Model"+ this.model);
+        
     }
     
     public DeleteUserAdmin() {
@@ -65,6 +67,7 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         UserField1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -75,12 +78,17 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Delete User page");
+        jLabel2.setText("Deletar usuário - Admin");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 26, 580, 60));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 26, 590, 70));
 
         jButton1.setText("Deletar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 200, 50));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, 180, 50));
 
         jButton2.setText("Voltar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -88,26 +96,32 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 200, 50));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 570, 180, 50));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Digite o IDUser:");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 150, 40));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, 150, 40));
 
         UserField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         UserField1.setOpaque(true);
-        getContentPane().add(UserField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 180, 40));
+        getContentPane().add(UserField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 510, 180, 40));
 
-        refreshTable();
+        jButton3.setText("Atualizar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 580, 170, 50));
+
         jTable1.setModel(model);
         jTable1.setShowGrid(true);
-        System.out.println(model);
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 460, 410));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 590, 340));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -121,6 +135,24 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String userField = UserField1.getText();
+        int userID = Integer.parseInt(userField);
+        if (DatabaseUtil.removeUser(userID)) {
+            JOptionPane.showMessageDialog(null, "Deletado com sucesso");
+                    refreshTable(); 
+        }
+        else{JOptionPane.showMessageDialog(null, "Não foi possível deletar usuário");
+}
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -160,6 +192,7 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField UserField1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

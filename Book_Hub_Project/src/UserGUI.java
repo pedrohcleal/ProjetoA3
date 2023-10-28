@@ -15,7 +15,7 @@ public class UserGUI extends javax.swing.JFrame {
     public UserGUI() {
         initComponents();
     }
-
+    private String nameID;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,17 +75,22 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed
         //comando botaõ Voltar
+        System.out.println(this.nameID);
+        
         Login login = new Login();
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_returnBttActionPerformed
 
     private void registerBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBttActionPerformed
-            //Comando botão registrar livro
+        //Comando botão registrar livro
+        UserID userID = new UserID();
+        userID.usernameID = this.nameID;
+        
         BookRegister bookRegister = new BookRegister();
         bookRegister.setVisible(true);
+        bookRegister.getClass(userID);
         dispose();
-            
     }//GEN-LAST:event_registerBttActionPerformed
 
     private void viewBooksBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBooksBttActionPerformed
@@ -137,4 +142,8 @@ public class UserGUI extends javax.swing.JFrame {
     private javax.swing.JButton returnBtt;
     private javax.swing.JButton viewBooksBtt;
     // End of variables declaration//GEN-END:variables
+
+    void getClass(UserID userID) {
+        this.nameID = userID.usernameID;
+    }
 }

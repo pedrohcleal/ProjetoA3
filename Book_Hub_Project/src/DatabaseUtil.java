@@ -89,18 +89,14 @@ public class DatabaseUtil {
 
 
     //Remover usuário no BD
-    public static boolean removeUser(String username, String idade, String sexo, String lp1, String lp2) {
+    public static boolean removeUser(int ID) {
        try {
            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-           String sql = "DELETE FROM users WHERE nome = ?";
+           String sql = "DELETE FROM allusers WHERE ID = ?";
            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-           preparedStatement.setString(1, username);
-           preparedStatement.setString(2, username);
-           preparedStatement.setString(3, username);
-           preparedStatement.setString(4, username);
-           preparedStatement.setString(5, username);
-
+           preparedStatement.setInt(1, ID);
+           
            int rowsAffected = preparedStatement.executeUpdate();
 
            connection.close();

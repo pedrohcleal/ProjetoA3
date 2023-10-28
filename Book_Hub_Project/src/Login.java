@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-
 import javax.swing.JOptionPane;
 /**
  *
@@ -138,22 +137,28 @@ public class Login extends javax.swing.JFrame {
 
     private void loginBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBttActionPerformed
         // TODO add your handling code here:
-         String username = textField1.getText();
+        
+        String username = textField1.getText();
         char[] password = passwordField1.getPassword();
         String passwordStr = new String(password);
+        
+        UserID userID = new UserID();
+        userID.usernameID = username;
         
         if (DatabaseUtil.checkLogin(username, passwordStr)) {
             String typeuser = DatabaseUtil.checkTypeUser(username, passwordStr);
             if (typeuser.equals("admin")){
                 JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
                 AdminGUI guiAdmin = new AdminGUI();
-                guiAdmin.setVisible(true);
+                guiAdmin.setVisible(true);                
             }
+            
             else if (typeuser.equals("user")){
                 JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
                 System.out.println(typeuser + "é user");
                 UserGUI guiUser = new UserGUI();
                 guiUser.setVisible(true);
+                guiUser.getClass(userID);
             }
             dispose();           
         } 

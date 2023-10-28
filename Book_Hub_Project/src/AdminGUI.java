@@ -89,7 +89,9 @@ public class AdminGUI extends javax.swing.JFrame {
 
     private void deleteUserBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBttActionPerformed
         // TODO add your handling code here:
-        
+        DeleteUserAdmin deleteUser = new DeleteUserAdmin();
+        deleteUser.setVisible(true);
+        dispose();
     }//GEN-LAST:event_deleteUserBttActionPerformed
 
     /**
@@ -134,4 +136,5 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JButton returnBtt;
     private javax.swing.JButton userRegisterBtt;
     // End of variables declaration//GEN-END:variables
+
 }
