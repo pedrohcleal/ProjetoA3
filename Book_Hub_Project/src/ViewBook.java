@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,14 +15,52 @@
  * @author Administrator
  */
 public class ViewBook extends javax.swing.JFrame {
+    int id;
+    String strid = String.valueOf(id);
+    private  DefaultTableModel model;
+    private Object stmt;
+    
+    /**
+     * Creates new form DeleteUserAdmin
+     */
+    private void refreshTable() {
+        this.model.setRowCount(0);
+        this.model.setColumnCount(0);
+        this.model.addColumn("IDUser");
+        this.model.addColumn("Título");
+        this.model.addColumn("Autor");
+        this.model.addColumn("Tipo");
+        this.model.addColumn("Sua Nota");
+        this.model.addColumn("Média Notas");
 
+
+        try (Connection conn = DatabaseUtil.getConnection();
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM livros where iduser = " + strid);
+            ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int idsql = rs.getInt("iduser");
+                String titulo = rs.getString("titulo");
+                String autor = rs.getString("autor");
+                String tipo = rs.getString("tipo");
+                String nota_cliente = rs.getString("nota_cliente");
+
+
+                this.model.addRow(new Object[]{idsql, titulo, autor, tipo, nota_cliente});
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+    }
     /**
      * Creates new form ViewBook
      */
     public ViewBook() {
+        model = new DefaultTableModel();
+        refreshTable();
         initComponents();
     }
-    private String nameID;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,6 +74,8 @@ public class ViewBook extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         returnBtt = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -37,10 +84,10 @@ public class ViewBook extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Lista de livros:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 6, 318, 45));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 318, 45));
 
         jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 235, 85, 34));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 85, 34));
 
         returnBtt.setText("Voltar");
         returnBtt.addActionListener(new java.awt.event.ActionListener() {
@@ -48,18 +95,25 @@ public class ViewBook extends javax.swing.JFrame {
                 returnBttActionPerformed(evt);
             }
         });
-        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 87, 34));
+        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, 87, 34));
+
+        jTable1.setModel(model);
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 600, 430));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 410, 310));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed
         // TODO add your handling code here:
+        System.out.println(id + "ID aqui");
         UserGUI returnGUI = new UserGUI();
         returnGUI.setVisible(true);
+        returnGUI.id = id;
         dispose();
     }//GEN-LAST:event_returnBttActionPerformed
 
@@ -97,13 +151,13 @@ public class ViewBook extends javax.swing.JFrame {
             }
         });
     }
-    void getClass(UserID userID) {
-        this.nameID = userID.usernameID;
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton returnBtt;
     // End of variables declaration//GEN-END:variables
 }

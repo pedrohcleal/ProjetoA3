@@ -35,6 +35,7 @@ public class DatabaseUtil {
 
         return false;
     }
+    //Retornar tipo de usuário
     public static String checkTypeUser(String username, String password) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
@@ -107,21 +108,23 @@ public class DatabaseUtil {
            return false;
        }
     }
-    public static boolean addBook(String titulo, String autor, String tipo, int nota) {
+    //Adicionar livros no bd
+    public static boolean addBook(String titulo, String autor, String tipo, int nota, int ID) {
        try {
            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
            // insira os valores na tabela clientusers
-           String sqlAllUsers = "INSERT INTO livros (titulo, autor, tipo, nota_cliente)"
-                   + " VALUES (?, ?, ?, ?)";
-
-           PreparedStatement AllUsers = connection.prepareStatement(sqlAllUsers);
-           AllUsers.setString(1, titulo);
-           AllUsers.setString(2, autor);
-           AllUsers.setString(3, tipo);
-           AllUsers.setInt(4, nota);
-
-           int rowsAffectedClientUsers = AllUsers.executeUpdate();
+           String sqlAllUsers = "INSERT INTO livros (titulo, autor, tipo, nota_cliente, iduser)"
+                   + " VALUES (?, ?, ?, ?, ?)";
+           
+           PreparedStatement addBook = connection.prepareStatement(sqlAllUsers);
+           addBook.setString(1, titulo);
+           addBook.setString(2, autor);
+           addBook.setString(3, tipo);
+           addBook.setInt(4, nota);
+           addBook.setInt(5, ID);
+           
+           int rowsAffectedClientUsers = addBook.executeUpdate();
            connection.close();
            // Verifique se ambas as inserções foram bem-sucedidas
            return rowsAffectedClientUsers > 0;
@@ -130,11 +133,35 @@ public class DatabaseUtil {
            return false;
        }
     }
+    //Tentar coneecção e retornar drivermanager
     public static Connection getConnection() throws SQLException {
            // Configurar a URL de conexão, usuário e senha aqui
            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
            return connection;
        }
-    
+    //Retornar ID do user
+    public static int returnIDuser(String username, String password) {
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
+            String sql = "SELECT * FROM allusers WHERE nome = ? AND senha = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                int userType = resultSet.getInt("ID");
+                connection.close();
+                return userType;
+            }
+
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
 }

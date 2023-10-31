@@ -142,8 +142,9 @@ public class Login extends javax.swing.JFrame {
         char[] password = passwordField1.getPassword();
         String passwordStr = new String(password);
         
-        UserID userID = new UserID();
-        userID.usernameID = username;
+        int iduser = DatabaseUtil.returnIDuser(username, passwordStr);
+        
+        System.out.println(iduser);
         
         if (DatabaseUtil.checkLogin(username, passwordStr)) {
             String typeuser = DatabaseUtil.checkTypeUser(username, passwordStr);
@@ -155,10 +156,11 @@ public class Login extends javax.swing.JFrame {
             
             else if (typeuser.equals("user")){
                 JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
-                System.out.println(typeuser + "é user");
                 UserGUI guiUser = new UserGUI();
                 guiUser.setVisible(true);
-                guiUser.getClass(userID);
+                guiUser.id = iduser;
+                //guiUser.getClass(userID);
+                
             }
             dispose();           
         } 

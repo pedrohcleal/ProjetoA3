@@ -8,14 +8,16 @@
  * @author Administrator
  */
 public class UserGUI extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form UserGUI
      */
     public UserGUI() {
         initComponents();
+        
     }
-    private String nameID;
+    public int id;
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,28 +77,27 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed
         //comando botaõ Voltar
-        System.out.println(this.nameID);
-        
+        System.out.println(id);
         Login login = new Login();
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_returnBttActionPerformed
-
+    
     private void registerBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBttActionPerformed
         //Comando botão registrar livro
-        UserID userID = new UserID();
-        userID.usernameID = this.nameID;
-        
+        System.out.println(id);
         BookRegister bookRegister = new BookRegister();
         bookRegister.setVisible(true);
-        bookRegister.getClass(userID);
+        bookRegister.id = id;
         dispose();
     }//GEN-LAST:event_registerBttActionPerformed
 
+    
     private void viewBooksBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBooksBttActionPerformed
         // Comando do botão visualizar livros
         ViewBook viewbook = new ViewBook();
         viewbook.setVisible(true);
+        viewbook.id = id;
         dispose();
     }//GEN-LAST:event_viewBooksBttActionPerformed
 
@@ -143,7 +144,5 @@ public class UserGUI extends javax.swing.JFrame {
     private javax.swing.JButton viewBooksBtt;
     // End of variables declaration//GEN-END:variables
 
-    void getClass(UserID userID) {
-        this.nameID = userID.usernameID;
-    }
+        
 }

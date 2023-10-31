@@ -17,8 +17,12 @@ public class BookRegister extends javax.swing.JFrame {
      */
     public BookRegister() {
         initComponents();
+        getClass();
     }
-
+    int id;
+     
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -135,16 +139,16 @@ public class BookRegister extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed
         // TODO add your handling code here:
-        System.out.println(nameID);
-        
+        System.out.println(id);
         UserGUI returnGUI = new UserGUI();
         returnGUI.setVisible(true);
+        returnGUI.id = id;
         dispose();     
     }//GEN-LAST:event_returnBttActionPerformed
-    private String nameID;
+        
     private void notaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_notaComboBoxActionPerformed
@@ -164,12 +168,13 @@ public class BookRegister extends javax.swing.JFrame {
         String tipo = (String) tipoComboBox.getSelectedItem();
         String notaString = (String) notaComboBox.getSelectedItem();
         int nota = Integer.parseInt(notaString);
-        boolean bookAdded = DatabaseUtil.addBook(titulo, autor, tipo, nota);
+        boolean bookAdded = DatabaseUtil.addBook(titulo, autor, tipo, nota, id);
         if (bookAdded){
             JOptionPane.showMessageDialog(null,"Livro adicionado com sucesso!");
         } else {
             JOptionPane.showMessageDialog(null,"Livro adicionado com sucesso!");
         }
+        System.out.println(id);
     }//GEN-LAST:event_cadastrarBttActionPerformed
 
     /**
@@ -224,8 +229,4 @@ public class BookRegister extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> tipoComboBox;
     private javax.swing.JTextField tituloField;
     // End of variables declaration//GEN-END:variables
-
-    void getClass(UserID userID) {
-        this.nameID = userID.usernameID;
-    }
 }
