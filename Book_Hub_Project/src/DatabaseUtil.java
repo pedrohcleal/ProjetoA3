@@ -10,13 +10,13 @@ public class DatabaseUtil {
     private static final String DB_PASS = "root";
        
     //Checa login- user e senha
-    public static boolean checkLogin(String username, String password) {
+    public static boolean checkLogin(int iduser, String password) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-            String sql = "SELECT * FROM allusers WHERE nome = ? AND senha = ?";
+            String sql = "SELECT * FROM allusers WHERE ID = ? AND senha = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, username);
+            preparedStatement.setInt(1, iduser);
             preparedStatement.setString(2, password);
             
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -36,13 +36,13 @@ public class DatabaseUtil {
         return false;
     }
     //Retornar tipo de usuário
-    public static String checkTypeUser(String username, String password) {
+    public static String checkTypeUser(int iduser, String password) {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-            String sql = "SELECT * FROM allusers WHERE nome = ? AND senha = ?";
+            String sql = "SELECT * FROM allusers WHERE ID = ? AND senha = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, username);
+            preparedStatement.setInt(1, iduser);
             preparedStatement.setString(2, password);
             
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -60,7 +60,31 @@ public class DatabaseUtil {
 
         return null;
     }
-//Adicionar usuário no BD
+    //Retornar nome do usuario
+    public static String returnName(int iduser) {
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+
+            String sql = "SELECT * FROM allusers WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, iduser);
+                        
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String userName = resultSet.getString("Nome");
+                connection.close();
+                return userName;
+            }
+
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+    //Adicionar usuário no BD
     public static boolean addUser(String username, String senha, String idade, String sexo, String LP1, String LP2) {
        try {
            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);

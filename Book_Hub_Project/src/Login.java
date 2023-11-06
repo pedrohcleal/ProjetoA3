@@ -110,7 +110,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Usuário");
+        jLabel1.setText("ID");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 121, 68));
@@ -137,25 +137,34 @@ public class Login extends javax.swing.JFrame {
 
     private void loginBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBttActionPerformed
         // TODO add your handling code here:
-        
         String username = textField1.getText();
+        try{
+            int iduser = Integer.parseInt(username);
+        }  catch (NumberFormatException e) {
+        // Lidar com a entrada inválida aqui,exibir uma mensagem de erro
+            JOptionPane.showMessageDialog(null, "Digite um ID válido, somente números.");
+            textField1.setText("");
+            passwordField1.setText("");
+        }
+        int iduser = Integer.parseInt(username);
+
         char[] password = passwordField1.getPassword();
         String passwordStr = new String(password);
         
-        int iduser = DatabaseUtil.returnIDuser(username, passwordStr);
+        //int iduser = DatabaseUtil.returnIDuser(username, passwordStr);
         
         System.out.println(iduser);
-        
-        if (DatabaseUtil.checkLogin(username, passwordStr)) {
-            String typeuser = DatabaseUtil.checkTypeUser(username, passwordStr);
+        String nomedeUser =  DatabaseUtil.returnName(iduser);
+        if (DatabaseUtil.checkLogin(iduser, passwordStr)) {
+            String typeuser = DatabaseUtil.checkTypeUser(iduser, passwordStr);
             if (typeuser.equals("admin")){
-                JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
+                JOptionPane.showMessageDialog(null, "Login bem-sucedido!\n Seja Bem vindo(a) " + nomedeUser);
                 AdminGUI guiAdmin = new AdminGUI();
                 guiAdmin.setVisible(true);                
             }
             
             else if (typeuser.equals("user")){
-                JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
+                JOptionPane.showMessageDialog(null, "Login bem-sucedido!\n Seja Bem vindo(a) " + nomedeUser);
                 UserGUI guiUser = new UserGUI();
                 guiUser.setVisible(true);
                 guiUser.id = iduser;
@@ -166,6 +175,8 @@ public class Login extends javax.swing.JFrame {
         } 
         else {
             JOptionPane.showMessageDialog(null, "Login falhou. Tente novamente.");
+            textField1.setText("");
+            passwordField1.setText("");
         }        
     }//GEN-LAST:event_loginBttActionPerformed
 

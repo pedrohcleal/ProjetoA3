@@ -26,26 +26,24 @@ public class ViewBook extends javax.swing.JFrame {
     private void refreshTable() {
         this.model.setRowCount(0);
         this.model.setColumnCount(0);
-        this.model.addColumn("IDUser");
         this.model.addColumn("Título");
         this.model.addColumn("Autor");
         this.model.addColumn("Tipo");
-        this.model.addColumn("Sua Nota");
-        this.model.addColumn("Média Notas");
-
-
+        this.model.addColumn("Nota");
+        
         try (Connection conn = DatabaseUtil.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM livros where iduser = " + strid);
+            PreparedStatement stmt = conn.prepareStatement("SELECT "
+                    + "titulo, autor, tipo, nota_cliente"
+                    + " FROM livros ORDER BY titulo ASC, nota_cliente DESC");
             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                int idsql = rs.getInt("iduser");
+                
                 String titulo = rs.getString("titulo");
                 String autor = rs.getString("autor");
                 String tipo = rs.getString("tipo");
                 String nota_cliente = rs.getString("nota_cliente");
 
-
-                this.model.addRow(new Object[]{idsql, titulo, autor, tipo, nota_cliente});
+                this.model.addRow(new Object[]{titulo, autor, tipo, nota_cliente});
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -72,10 +70,10 @@ public class ViewBook extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         returnBtt = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,21 +84,26 @@ public class ViewBook extends javax.swing.JFrame {
         jLabel1.setText("Lista de livros:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 318, 45));
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 85, 34));
-
         returnBtt.setText("Voltar");
         returnBtt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnBttActionPerformed(evt);
             }
         });
-        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, 87, 34));
+        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, 87, 34));
 
         jTable1.setModel(model);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 600, 430));
+
+        jButton2.setText("Atualizar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 590, 90, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 660));
@@ -116,6 +119,11 @@ public class ViewBook extends javax.swing.JFrame {
         returnGUI.id = id;
         dispose();
     }//GEN-LAST:event_returnBttActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,7 +161,7 @@ public class ViewBook extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

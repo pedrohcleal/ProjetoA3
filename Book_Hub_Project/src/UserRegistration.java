@@ -167,10 +167,14 @@ public class UserRegistration extends javax.swing.JFrame {
         String lp1 = (String) jComboBox1.getSelectedItem();
         String lp2 = (String) jComboBox2.getSelectedItem();
         String pass1 = (String) passField.getText();
+        
         //System.out.println(nome + idade + sexo + lp1 + lp2);
         boolean userAdded = DatabaseUtil.addUser(nome, pass1, idade, sexo, lp1, lp2);
         if (userAdded){
+            int iduser = DatabaseUtil.returnIDuser(nome, pass1);
             JOptionPane.showMessageDialog(null,"Usuário adicionado com sucesso!");
+            
+            JOptionPane.showMessageDialog(null,"Seu ID é: " + iduser + "Sua senha é" + pass1);
         } else {
             JOptionPane.showMessageDialog(null,"Usuário adicionado com sucesso!");
         }
