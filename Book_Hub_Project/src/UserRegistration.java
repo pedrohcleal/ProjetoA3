@@ -1,3 +1,4 @@
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
@@ -17,6 +18,8 @@ public class UserRegistration extends javax.swing.JFrame {
      */
     public UserRegistration() {
         initComponents();
+        ImageIcon icon = new ImageIcon("bookhub_logo_livroMINI.png");
+        setIconImage(icon.getImage());
     }
 
     /**
@@ -54,42 +57,42 @@ public class UserRegistration extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("  Nome");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 133, 240, 70));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 133, 240, 50));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Idade");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 240, 80));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 240, 40));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Sexo");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 308, 240, 74));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 240, 40));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Livro preferido 1");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 394, 240, 82));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 240, 40));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Livro preferido 2");
         jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 494, 240, 73));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 240, 40));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Senha");
         jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 586, 240, 73));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 240, 40));
 
         registerBtt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         registerBtt.setText("Cadastrar");
@@ -98,7 +101,7 @@ public class UserRegistration extends javax.swing.JFrame {
                 registerBttActionPerformed(evt);
             }
         });
-        getContentPane().add(registerBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 700, 147, 66));
+        getContentPane().add(registerBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 120, 60));
 
         returnBtt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         returnBtt.setText("Voltar");
@@ -107,7 +110,7 @@ public class UserRegistration extends javax.swing.JFrame {
                 returnBttActionPerformed(evt);
             }
         });
-        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 700, 134, 66));
+        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 120, 60));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,34 +118,34 @@ public class UserRegistration extends javax.swing.JFrame {
         jLabel6.setText("Cadastrar usuário");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 520, 90));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 380, 80));
 
         idadeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idadeFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(idadeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 331, 74));
+        getContentPane().add(idadeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 331, 40));
 
         nomeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(nomeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 331, 68));
+        getContentPane().add(nomeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 331, 50));
 
         sexoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         sexoBox.setToolTipText("Selecionar sexo");
-        getContentPane().add(sexoBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 331, 74));
+        getContentPane().add(sexoBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 331, 40));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "romance", "ficcao", "tecnico" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 331, 74));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 331, 40));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "romance", "ficcao", "tecnico" }));
         jComboBox1.setToolTipText("Inserir livro prefirido nº 1 do usuário");
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 331, 73));
-        getContentPane().add(passField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 331, 64));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 331, 40));
+        getContentPane().add(passField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 331, 40));
 
         clearBtt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         clearBtt.setText("Limpar");
@@ -151,12 +154,13 @@ public class UserRegistration extends javax.swing.JFrame {
                 clearBttActionPerformed(evt);
             }
         });
-        getContentPane().add(clearBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 700, 147, 66));
+        getContentPane().add(clearBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 460, 140, 60));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vector-JUL-2020-129.jpg"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 790));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 560));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBttActionPerformed

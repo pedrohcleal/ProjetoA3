@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -57,6 +58,8 @@ public class ViewBook extends javax.swing.JFrame {
         model = new DefaultTableModel();
         refreshTable();
         initComponents();
+        ImageIcon icon = new ImageIcon("bookhub_logo_livroMINI.png");
+        setIconImage(icon.getImage());
     }
     
 
@@ -109,6 +112,7 @@ public class ViewBook extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 660));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed

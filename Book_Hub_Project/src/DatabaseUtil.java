@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseUtil {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/bd-bookhub";
     private static final String DB_USER = "root";
-    private static final String DB_PASS = "root";
+    private static final String DB_PASS = "anima123";
        
     //Checa login- user e senha
     public static boolean checkLogin(int iduser, String password) {

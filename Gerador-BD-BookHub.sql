@@ -1,8 +1,10 @@
 	select * from allusers;
-	select * from clientusers;
 	select * from livros;
 
-	INSERT INTO allusers (Nome, Senha, Tipo_de_usuário) VALUES ('pedro','admin','admin');
+	INSERT INTO allusers (Nome, Senha, Tipo_de_usuário) VALUES ('Pedro','admin','admin');
+    INSERT INTO allusers (Nome, Senha, Tipo_de_usuário) VALUES ('Leonardo','admin','user');
+    
+    create database bd-bookhub;
     
 	CREATE TABLE allusers (
 		ID INT auto_increment PRIMARY KEY, 

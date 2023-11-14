@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -49,7 +50,9 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
     public DeleteUserAdmin() {
         model = new DefaultTableModel();
         refreshTable();
-        initComponents();                        
+        initComponents();
+        ImageIcon icon = new ImageIcon("bookhub_logo_livroMINI.png");
+        setIconImage(icon.getImage());
     }
     
     
@@ -128,6 +131,7 @@ public class DeleteUserAdmin extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 690, 670));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     

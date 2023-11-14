@@ -1,4 +1,5 @@
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
@@ -18,6 +19,8 @@ public class BookRegister extends javax.swing.JFrame {
     public BookRegister() {
         initComponents();
         getClass();
+        ImageIcon icon = new ImageIcon("bookhub_logo_livroMINI.png");
+        setIconImage(icon.getImage());
     }
     int id;
      
@@ -138,6 +141,7 @@ public class BookRegister extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 520));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed

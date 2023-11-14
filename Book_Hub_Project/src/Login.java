@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
@@ -15,6 +16,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        ImageIcon icon = new ImageIcon("bookhub_logo_livroMINI.png");
+        setIconImage(icon.getImage());
     }
 
     /**
