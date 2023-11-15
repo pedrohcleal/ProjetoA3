@@ -17,9 +17,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ViewBook extends javax.swing.JFrame {
     int id;
-    String strid = String.valueOf(id);
+    //String strid = String.valueOf(id);
     private  DefaultTableModel model;
-    private Object stmt;
+    
     
     /**
      * Creates new form DeleteUserAdmin
@@ -117,7 +117,7 @@ public class ViewBook extends javax.swing.JFrame {
 
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed
         // TODO add your handling code here:
-        System.out.println(id + "ID aqui");
+        //System.out.println(id + "ID aqui");
         UserGUI returnGUI = new UserGUI();
         returnGUI.setVisible(true);
         returnGUI.id = id;

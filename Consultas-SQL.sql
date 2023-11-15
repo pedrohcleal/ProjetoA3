@@ -1,4 +1,6 @@
-CREATE SCHEMA `bd-bookhub`;
+select * from livros where iduser = 7;
+select * from livros;
+select * from allusers;
 
 CREATE TABLE allusers (
 		ID INT auto_increment PRIMARY KEY, 
@@ -22,3 +24,10 @@ CREATE TABLE livros(
 INSERT INTO allusers (Nome, Senha, Tipo_de_usuário) VALUES ('UserADM','admin','admin');
 INSERT INTO allusers (Nome, Senha, Tipo_de_usuário) VALUES ('Leonardo','user','user');
 INSERT INTO allusers (Nome, Senha, Tipo_de_usuário) VALUES ('Guilherme','user','user');
+
+INSERT INTO allusers (Nome, Senha, Tipo_de_usuário) VALUES ('pedro','admin','admin');
+    
+SELECT titulo, autor, tipo, nota_cliente FROM livros ORDER BY titulo ASC, nota_cliente DESC;
+
+drop table allusers;
+drop table livros;

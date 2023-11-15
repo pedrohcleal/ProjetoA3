@@ -83,7 +83,7 @@ public class UserGUI extends javax.swing.JFrame {
 
     private void returnBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBttActionPerformed
         //comando botaõ Voltar
-        System.out.println(id);
+        //System.out.println(id);
         Login login = new Login();
         login.setVisible(true);
         dispose();
@@ -91,7 +91,7 @@ public class UserGUI extends javax.swing.JFrame {
     
     private void registerBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBttActionPerformed
         //Comando botão registrar livro
-        System.out.println(id);
+        //System.out.println(id);
         BookRegister bookRegister = new BookRegister();
         bookRegister.setVisible(true);
         bookRegister.id = id;

@@ -69,10 +69,15 @@ public class BookRegister extends javax.swing.JFrame {
                 returnBttActionPerformed(evt);
             }
         });
-        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 130, 50));
+        getContentPane().add(returnBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 130, 50));
 
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 160, 50));
+        jButton2.setText("Limpar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 160, 50));
 
         cadastrarBtt.setText("Cadastrar");
         cadastrarBtt.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +85,7 @@ public class BookRegister extends javax.swing.JFrame {
                 cadastrarBttActionPerformed(evt);
             }
         });
-        getContentPane().add(cadastrarBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 130, 50));
+        getContentPane().add(cadastrarBtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 130, 50));
 
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
@@ -180,6 +185,14 @@ public class BookRegister extends javax.swing.JFrame {
         }
         System.out.println(id);
     }//GEN-LAST:event_cadastrarBttActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        tituloField.setText("");
+        autorField.setText("");
+        tipoComboBox.setSelectedItem("Romance");
+        notaComboBox.setSelectedItem("10");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

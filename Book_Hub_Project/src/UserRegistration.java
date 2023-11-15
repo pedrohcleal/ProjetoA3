@@ -134,7 +134,7 @@ public class UserRegistration extends javax.swing.JFrame {
         });
         getContentPane().add(nomeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 331, 50));
 
-        sexoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
+        sexoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "Masculino", "Feminino" }));
         sexoBox.setToolTipText("Selecionar sexo");
         getContentPane().add(sexoBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 331, 40));
 
@@ -172,16 +172,22 @@ public class UserRegistration extends javax.swing.JFrame {
         String lp2 = (String) jComboBox2.getSelectedItem();
         String pass1 = (String) passField.getText();
         
+        //System.out.println(lastid);
         //System.out.println(nome + idade + sexo + lp1 + lp2);
-        boolean userAdded = DatabaseUtil.addUser(nome, pass1, idade, sexo, lp1, lp2);
-        if (userAdded){
-            int iduser = DatabaseUtil.returnIDuser(nome, pass1);
-            JOptionPane.showMessageDialog(null,"Usuário adicionado com sucesso!");
-            
-            JOptionPane.showMessageDialog(null,"Seu ID é: " + iduser + "Sua senha é" + pass1);
-        } else {
-            JOptionPane.showMessageDialog(null,"Usuário adicionado com sucesso!");
+        if (nome.equals("") ||  idade.equals("") || pass1.equals("") || sexo.equals("")) {
+            JOptionPane.showMessageDialog(null,"Nome, idade, sexo e/ou senha vazios \nPreencha corretamente.");
         }
+        else {
+            boolean userAdded = DatabaseUtil.addUser(nome, pass1, idade, sexo, lp1, lp2);
+            if (userAdded){
+                int lastid = DatabaseUtil.returnLastUser();
+                JOptionPane.showMessageDialog(null,"Usuário adicionado com sucesso!");
+                JOptionPane.showMessageDialog(null,"Seu ID é: " + lastid + "\nSua senha é: " + pass1);
+            } else {
+                JOptionPane.showMessageDialog(null,"Usuário adicionado com sucesso!");
+            }
+        }
+        
     }//GEN-LAST:event_registerBttActionPerformed
 
     private void nomeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFieldActionPerformed
@@ -201,6 +207,12 @@ public class UserRegistration extends javax.swing.JFrame {
 
     private void clearBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBttActionPerformed
         // TODO add your handling code here:
+        nomeField.setText("");
+        idadeField.setText("");
+        sexoBox.setSelectedItem("null");
+        jComboBox1.setSelectedItem("null");
+        jComboBox2.setSelectedItem("null");
+        passField.setText("");
     }//GEN-LAST:event_clearBttActionPerformed
 
     /**

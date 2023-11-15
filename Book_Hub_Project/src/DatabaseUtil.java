@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseUtil {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/bd-bookhub";
     private static final String DB_USER = "root";
-    private static final String DB_PASS = "anima123";
+    private static final String DB_PASS = "root";
        
     //Checa login- user e senha
     public static boolean checkLogin(int iduser, String password) {
@@ -188,4 +188,27 @@ public class DatabaseUtil {
 
         return 0;
     }
+    public static int returnLastUser() {
+    int lastUserId = 0;
+
+    try {
+        Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+
+        String sql = "SELECT * FROM allusers ORDER BY ID DESC LIMIT 1";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        if (resultSet.next()) {
+            lastUserId = resultSet.getInt("ID");
+        }
+
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return lastUserId;
+    }
+
 }

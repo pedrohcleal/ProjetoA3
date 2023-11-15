@@ -156,7 +156,7 @@ public class Login extends javax.swing.JFrame {
         
         //int iduser = DatabaseUtil.returnIDuser(username, passwordStr);
         
-        System.out.println(iduser);
+        //System.out.println(iduser);
         String nomedeUser =  DatabaseUtil.returnName(iduser);
         if (DatabaseUtil.checkLogin(iduser, passwordStr)) {
             String typeuser = DatabaseUtil.checkTypeUser(iduser, passwordStr);
