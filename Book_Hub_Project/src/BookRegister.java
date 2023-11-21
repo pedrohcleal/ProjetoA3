@@ -178,12 +178,17 @@ public class BookRegister extends javax.swing.JFrame {
         String notaString = (String) notaComboBox.getSelectedItem();
         int nota = Integer.parseInt(notaString);
         boolean bookAdded = DatabaseUtil.addBook(titulo, autor, tipo, nota, id);
-        if (bookAdded){
-            JOptionPane.showMessageDialog(null,"Livro adicionado com sucesso!");
-        } else {
-            JOptionPane.showMessageDialog(null,"Livro adicionado com sucesso!");
+        
+        if (titulo.equals("") || autor.equals("")){
+            JOptionPane.showMessageDialog(null,"Campos de título ou autor vazios \nPreencha corretamente.");
         }
-        System.out.println(id);
+        else{
+            if (bookAdded){
+                JOptionPane.showMessageDialog(null,"Livro adicionado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null,"Livro não foi adicionado.");
+            }
+        }
     }//GEN-LAST:event_cadastrarBttActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

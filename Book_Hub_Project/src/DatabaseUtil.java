@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DatabaseUtil {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/bd-bookhub";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/bd_bookhub";
     private static final String DB_USER = "root";
     private static final String DB_PASS = "root";
        
